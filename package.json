@@ -1,0 +1,34 @@
+{
+  "name": "tiny-worker",
+  "version": "0.1.0",
+  "description": "A tiny worker for javascript",
+  "main": "tiny-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagoh/tiny-worker.git"
+  },
+  "keywords": [
+    "work",
+    "worker",
+    "step",
+    "batch",
+    "job",
+    "tiny",
+    "small",
+    "simple",
+    "concurrent",
+    "thread",
+    "maximum"
+  ],
+  "author": "Thiago Andrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagoh/tiny-worker/issues"
+  },
+  "devDependencies": {
+    "q": "^1.4.1"
+  }
+}
