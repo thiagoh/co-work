@@ -1,14 +1,38 @@
 {
   "name": "tiny-worker",
-  "version": "0.1.0",
   "description": "A tiny worker for javascript",
-  "main": "tiny-worker.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.1.0",
+  "homepage": "https://github.com/thiagoh/tiny-worker",
+  "author": {
+    "name": "Thiago Andrade",
+    "email": "thiagoh@gmail.com"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/thiagoh/tiny-worker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagoh/tiny-worker/issues"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/thiagoh/tiny-worker/blob/master/LICENSE-MIT"
+  }],
+  "main": "lib/tiny-worker",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt": "~0.4.5",
+    "q": "^1.4.1"
   },
   "keywords": [
     "work",
@@ -22,13 +46,5 @@
     "concurrent",
     "thread",
     "maximum"
-  ],
-  "author": "Thiago Andrade",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thiagoh/tiny-worker/issues"
-  },
-  "devDependencies": {
-    "q": "^1.4.1"
-  }
+  ]
 }
