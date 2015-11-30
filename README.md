@@ -1,3 +1,7 @@
+[![view on npm](http://img.shields.io/npm/v/co-work.svg)](https://www.npmjs.org/package/co-work)
+[![npm module downloads](http://img.shields.io/npm/dt/co-work.svg)](https://www.npmjs.org/package/co-work)
+
+<a name="module_co-work"></a>
 # co-work
 
 The tinest `work` library for JavaScript ever.
