@@ -1,5 +1,6 @@
 [![view on npm](http://img.shields.io/npm/v/co-work.svg)](https://www.npmjs.org/package/co-work)
 [![npm module downloads](http://img.shields.io/npm/thiagoh/co-work.svg)](https://www.npmjs.org/package/co-work)
+(https://img.shields.io/badge/license-MIT-blue.svg)
 
 <a name="module_co-work"></a>
 # co-work
