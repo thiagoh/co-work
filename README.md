@@ -1,6 +1,7 @@
 [![view on npm](http://img.shields.io/npm/v/co-work.svg)](https://www.npmjs.org/package/co-work)
-[![npm module downloads](http://img.shields.io/npm/thiagoh/co-work.svg)](https://www.npmjs.org/package/co-work)
-(https://img.shields.io/badge/license-MIT-blue.svg)
+[![npm module downloads](https://img.shields.io/npm/dt/co-work.svg)](https://www.npmjs.org/package/co-work)
+[![github downloads](https://img.shields.io/github/downloads/thiagoh/co-work/total.svg)](https://github.com/thiagoh/co-work)
+
 
 <a name="module_co-work"></a>
 # co-work
