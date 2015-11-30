@@ -1,24 +1,24 @@
 {
-  "name": "tiny-worker",
+  "name": "co-work",
   "description": "A tiny worker for javascript",
   "version": "0.1.0",
-  "homepage": "https://github.com/thiagoh/tiny-worker",
+  "homepage": "https://github.com/thiagoh/co-work",
   "author": {
     "name": "Thiago Andrade",
     "email": "thiagoh@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thiagoh/tiny-worker.git"
+    "url": "https://github.com/thiagoh/co-work.git"
   },
   "bugs": {
-    "url": "https://github.com/thiagoh/tiny-worker/issues"
+    "url": "https://github.com/thiagoh/co-work/issues"
   },
   "licenses": [{
     "type": "MIT",
-    "url": "https://github.com/thiagoh/tiny-worker/blob/master/LICENSE-MIT"
+    "url": "https://github.com/thiagoh/co-work/blob/master/LICENSE-MIT"
   }],
-  "main": "lib/tiny-worker",
+  "main": "lib/co-work",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -37,13 +37,18 @@
   "keywords": [
     "work",
     "worker",
-    "step",
     "batch",
     "job",
+    "concurrency",
+    "concurrent",
+    "step",
+    "splitted",
+    "interval",
+    "fork",
     "tiny",
+    "co",
     "small",
     "simple",
-    "concurrent",
     "thread",
     "maximum"
   ]
