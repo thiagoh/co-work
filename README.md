@@ -38,9 +38,6 @@ Bocoup.utils.work(slots, routines, argsArray);
 </script>
 ```
 
-## Documentation
-_(Coming soon)_
-
 ## Examples
 
 The example bellow will execute the function `asyncJob` for `argsArray.length` times. Each time with a position from the `argsArray`. In this case, the `work` function guarantees that no more than three routines are executed concurrently. 
@@ -79,7 +76,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 _Also, please don't edit files in the "dist" subdirectory as they are generated via Grunt. You'll find source code in the "lib" subdirectory!_
 
 ## Release History
-_(Nothing yet)_
+
+0.1.0 Initial release
 
 ## License
 Copyright (c) 2015 Thiago Andrade  
