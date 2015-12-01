@@ -1,6 +1,8 @@
 [![view on npm](http://img.shields.io/npm/v/co-work.svg)](https://www.npmjs.org/package/co-work)
+[![view on github](https://img.shields.io/node/v/co-work.svg)](https://github.com/thiagoh/co-work)
 [![npm module downloads](https://img.shields.io/npm/dt/co-work.svg)](https://www.npmjs.org/package/co-work)
-[![github downloads](https://img.shields.io/github/downloads/thiagoh/co-work/total.svg)](https://github.com/thiagoh/co-work)
+[![npm](https://img.shields.io/npm/l/co-work.svg?style=flat-square)](https://www.npmjs.org/package/co-work)
+[![GitHub stars](https://img.shields.io/github/stars/badges/co-work.svg?style=social&label=Star)]()
 
 <a name="module_co-work"></a>
 # co-work
@@ -82,7 +84,7 @@ _Also, please don't edit files in the "dist" subdirectory as they are generated 
 
 ## Release History
 
-0.1.0 Initial release
+0.1.4 Initial release
 
 ## License
 Copyright (c) 2015 Thiago Andrade  
