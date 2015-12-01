@@ -1,4 +1,4 @@
-/*! co-work - v0.1.4 - 2015-12-01
+/*! co-work - v0.1.5 - 2015-12-01
 * https://github.com/thiagoh/co-work
 * Copyright (c) 2015 Thiago Andrade; Licensed MIT */
 (function(exports) {
