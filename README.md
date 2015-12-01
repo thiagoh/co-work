@@ -2,7 +2,6 @@
 [![view on github](https://img.shields.io/node/v/co-work.svg)](https://github.com/thiagoh/co-work)
 [![npm module downloads](https://img.shields.io/npm/dt/co-work.svg)](https://www.npmjs.org/package/co-work)
 [![npm](https://img.shields.io/npm/l/co-work.svg?style=flat-square)](https://www.npmjs.org/package/co-work)
-[![GitHub stars](https://img.shields.io/github/stars/badges/co-work.svg?style=social&label=Star)]()
 
 <a name="module_co-work"></a>
 # co-work
