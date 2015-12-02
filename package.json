@@ -1,7 +1,7 @@
 {
   "name": "co-work",
   "description": "A tiny worker for javascript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/thiagoh/co-work",
   "author": {
     "name": "Thiago Andrade",
@@ -14,10 +14,12 @@
   "bugs": {
     "url": "https://github.com/thiagoh/co-work/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/thiagoh/co-work/blob/master/LICENSE-MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/thiagoh/co-work/blob/master/LICENSE-MIT"
+    }
+  ],
   "main": "lib/co-work",
   "engines": {
     "node": ">= 0.10.0"
