@@ -76,6 +76,18 @@ worker.work(3, asyncRoutine, argsArray);
 
 Always remember to return a `promise` object from your async function. In order to kwnow when your routine is done, Co-Work will require you return a promise object like [Q's promise](https://github.com/kriskowal/q), [jQuery.Deferred()'s promise](https://api.jquery.com/category/deferred-object/), or another one that implements this pattern.
 
+## API
+
+```js
+worker.work(slots, routines, argsArray) // Alias: batch
+
+    slots: (number)
+    
+    routines: (function|Array<function>) 
+    
+    argsArray: (Array|Array<Array>) 
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
