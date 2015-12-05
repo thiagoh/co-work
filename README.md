@@ -81,9 +81,12 @@ Always remember to return a `promise` object from your async function. In order 
 ```js
 worker.work(slots, routines, argsArray) // Alias: batch
 
-    slots: (number)
+    slots: (number) 
+        Number of maximum jobs you want to execute concurrently
     
     routines: (function|Array<function>) 
+        function: The job you want to execute repeatedly . If you pass a function as routines parameter, this function will be executed for argsArray.length times
+        Array<function>: The jobs you want to execute. If you pass an Array<function> as routines parameter, these functions will all be executed concurrently, restricted, obviously, by slots.
     
     argsArray: (Array|Array<Array>) 
 ```
