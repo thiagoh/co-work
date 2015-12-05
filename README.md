@@ -52,17 +52,17 @@ The example bellow will execute the function `asyncJob` for `argsArray.length` t
 
 var worker = require('co-work.js'),
     Q = require('q'),
-    argsArray = [['foo'],['bar'],['baz'],['qux'],['quux'],
-        ['garply'],['waldo'],['fred'],['plugh'],['xyzzy'],['thud']],
+    argsArray = ['foo','bar','baz','qux','quux','garply','waldo',
+                    'fred','plugh','xyzzy','thud'],
     asyncRoutine = function(param1) {
-    
+            
         var deferred = Q.defer(), promise = deferred.promise;
     
         setTimeout(function() {
             console.log(param1 + ': This command is running asynchronously');
             deferred.resolve(param1);
         }, 1);
-
+    
         // required to return a promise
         return promise;
     };
@@ -82,13 +82,14 @@ Always remember to return a `promise` object from your async function. In order 
 worker.work(slots, routines, argsArray) // Alias: batch
 
     slots: (number) 
-        Number of maximum jobs you want to execute concurrently
+        Number of maximum jobs you want to execute concurrently;
     
     routines: (function|Array<function>) 
         function: The job you want to execute repeatedly . If you pass a function as routines parameter, this function will be executed for argsArray.length times
-        Array<function>: The jobs you want to execute. If you pass an Array<function> as routines parameter, these functions will all be executed concurrently, restricted, obviously, by slots.
+        Array<function>: The jobs you want to execute. If you pass an Array<function> as routines parameter, these functions will all be executed concurrently, restricted, obviously, by slots;
     
-    argsArray: (Array|Array<Array>) 
+    argsArray: (Array) 
+        Array that contains the parameters to be iterated;
 ```
 
 ## Contributing
@@ -98,6 +99,7 @@ _Also, please don't edit files in the "dist" subdirectory as they are generated 
 
 ## Release History
 
+0.2.0 Args array parameter API fix release
 0.1.4 Initial release
 
 ## License
