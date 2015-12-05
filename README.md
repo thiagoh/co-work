@@ -79,7 +79,7 @@ Always remember to return a `promise` object from your async function. In order 
 ## API
 
 ```js
-worker.work(slots, routines, argsArray) // Alias: batch
+worker.work(slots, routines, argsArray, callback) // Alias: batch
 
     slots: (number) 
         Number of maximum jobs you want to execute concurrently;
@@ -90,6 +90,9 @@ worker.work(slots, routines, argsArray) // Alias: batch
     
     argsArray: (Array) 
         Array that contains the parameters to be iterated;
+    
+    callback: (function)
+        Callback function called after all jobs execution
 ```
 
 ## Contributing
@@ -99,6 +102,7 @@ _Also, please don't edit files in the "dist" subdirectory as they are generated 
 
 ## Release History
 
+* 0.4.0 Callback optional parameter
 * 0.2.0 Args array parameter API fix release
 * 0.1.4 Initial release
 
