@@ -37,10 +37,10 @@ var worker = require('../lib/co-work.js'),
         }
         return accum;
     },
-    repeat = function(n, array) {
+    fillWithIntegers = function(n) {
         var accum = [];
         for (var i = 0; i < n; i++) {
-            accum.push([].slice.call(array, 0));
+            accum.push(i);
         }
         return accum;
     },
@@ -96,7 +96,11 @@ var worker = require('../lib/co-work.js'),
     },
     generateAsyncCommand = function(test, wrapper) {
 
-        return function() {
+        return function(value) {
+
+            if (typeof wrapper.output !== 'undefined') {
+                wrapper.output.push(value);
+            }
 
             ++wrapper.count_workers_same_time;
 
@@ -112,25 +116,27 @@ var worker = require('../lib/co-work.js'),
                 deferred.resolve(--wrapper.count_workers_same_time);
 
                 if (--wrapper.count_workers_to_be_executed === 0) {
+
+                    if (typeof wrapper.input !== 'undefined') {
+
+                        wrapper.output.sort();
+                        wrapper.input.sort();
+
+                        test.equal(wrapper.output.length, wrapper.input.length, "Input parameter's length should be equal to output parameter's length");
+
+                        for (var i = 0; i < wrapper.output.length; i++) {
+                            test.equal(wrapper.output[i], wrapper.input[i], "Input parameters should be equal to output");
+                        }
+                    }
+
                     test.done();
                 }
+
             }, 10);
 
             return promise;
         };
     };
-
-// module.exports.testSomething = function(test) {
-// test.expect(1);
-// test.ok(true, "this assertion should pass");
-// test.done();
-// };
-// 
-// module.exports.testSomethingElse = function(test) {
-// test.ok(false, "this assertion should fail");
-// test.done();
-// };
-
 
 exports['work'] = {
     setUp: function(done) {
@@ -187,19 +193,22 @@ exports['work'] = {
     },
     'test_work_command_argsArrayFilled_async': function(test) {
 
-        var config = {
+        var count_workers_to_be_executed = 1000,
+            argsArray = fillWithIntegers(count_workers_to_be_executed),
+            config = {
                 max_workers_same_time: 100,
                 count_workers_same_time: 0,
-                count_workers_to_be_executed: 1000
+                count_workers_to_be_executed: count_workers_to_be_executed,
+                output: [],
+                input: argsArray
             },
-            command = generateAsyncCommand(test, config),
-            argsArray = repeat(config.count_workers_to_be_executed, []);
+            command = generateAsyncCommand(test, config);
 
         test.ok(argsArray.length === config.count_workers_to_be_executed,
             "It should exist " + config.count_workers_to_be_executed + " commands");
 
         worker.work(config.max_workers_same_time, command, argsArray);
-        test.expect(config.count_workers_to_be_executed + 1);
+        test.expect(config.count_workers_to_be_executed * 2 + 2);
     },
     'test_work_1000_commands_sync': function(test) {
 
@@ -218,6 +227,7 @@ exports['work'] = {
                         " workers are running when should be only " + max_workers_same_time);
 
                     --count_workers_same_time;
+                    
                     if (--count_workers_to_be_executed_test === 0) {
                         test.done();
                     }

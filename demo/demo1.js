@@ -3,17 +3,17 @@
 var worker = require('../lib/co-work.js'),
 	Q = require('q'),
 	argsArray = [
-		['foo'],
-		['bar'],
-		['baz'],
-		['qux'],
-		['quux'],
-		['garply'],
-		['waldo'],
-		['fred'],
-		['plugh'],
-		['xyzzy'],
-		['thud']
+		'foo',
+		'bar',
+		'baz',
+		'qux',
+		'quux',
+		'garply',
+		'waldo',
+		'fred',
+		'plugh',
+		'xyzzy',
+		'thud'
 	];
 
 // Run no more than three concurrently

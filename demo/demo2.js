@@ -6,7 +6,7 @@ var worker = require('../lib/co-work.js'),
 	argsArray = [];
 
 for (var i = 0; i < countWorkersToBeExecuted; i++) {
-	argsArray.push([i]);
+	argsArray.push(i);
 }
 
 // Run no more than ten concurrently

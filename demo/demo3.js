@@ -2,17 +2,10 @@
 
 var worker = require('../lib/co-work.js'),
 	Q = require('q'),
-	times = function(n, command) {
+	fillWithIntegers = function(n) {
 		var accum = [];
 		for (var i = 0; i < n; i++) {
-			accum.push(command(i));
-		}
-		return accum;
-	},
-	repeat = function(n, array) {
-		var accum = [];
-		for (var i = 0; i < n; i++) {
-			accum.push([].slice.call(array, 0));
+			accum.push(i);
 		}
 		return accum;
 	},
@@ -39,10 +32,6 @@ var worker = require('../lib/co-work.js'),
 	},
 	maximumWorkersAtTheSameTime = 10,
 	countWorkersToBeExecuted = 100,
-	argsArray = [];
-
-for (var i = 0; i < countWorkersToBeExecuted; i++) {
-	argsArray.push([i]);
-}
+	argsArray = fillWithIntegers(countWorkersToBeExecuted);
 
 worker.work(maximumWorkersAtTheSameTime, generateAsyncCommand(), argsArray);
