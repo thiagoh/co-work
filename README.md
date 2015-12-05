@@ -28,7 +28,7 @@ In your web page:
 ```html
 <script src="dist/co-work.min.js"></script>
 <script>
-worker.work(slots, routines, argsArray);
+worker.work(slots, routines, argsArray, callback);
 </script>
 ```
 
@@ -40,7 +40,7 @@ var exports = Bocoup.utils;
 </script>
 <script src="dist/co-work.min.js"></script>
 <script>
-Bocoup.utils.work(slots, routines, argsArray);
+Bocoup.utils.work(slots, routines, argsArray, callback);
 </script>
 ```
 
@@ -65,9 +65,13 @@ var worker = require('co-work.js'),
     
         // required to return a promise
         return promise;
+    }
+    callback = function() {
+        console.log("Callback at the end");
     };
+
 // Run no more than three concurrently
-worker.work(3, asyncRoutine, argsArray);
+worker.work(3, asyncRoutine, argsArray, callback);
 ```
 
  This is specially useful for routines like, reading many files asynchronously, in order to avoid [EMFILE, too many open files 1](http://stackoverflow.com/questions/8965606/node-and-error-emfile-too-many-open-files) or [EMFILE, too many open files 2](http://stackoverflow.com/questions/19981065/nodejs-error-emfile-too-many-open-files-on-mac-for) os example. 
@@ -79,7 +83,8 @@ Always remember to return a `promise` object from your async function. In order 
 ## API
 
 ```js
-worker.work(slots, routines, argsArray, callback) // Alias: batch
+worker.work(slots, routines[, argsArray|callback]) // Alias: batch
+worker.work(slots, routines, argsArray[, callback]) // Alias: batch
 
     slots: (number) 
         Number of maximum jobs you want to execute concurrently;
@@ -88,10 +93,10 @@ worker.work(slots, routines, argsArray, callback) // Alias: batch
         function: The job you want to execute repeatedly . If you pass a function as routines parameter, this function will be executed for argsArray.length times
         Array<function>: The jobs you want to execute. If you pass an Array<function> as routines parameter, these functions will all be executed concurrently, restricted, obviously, by slots;
     
-    argsArray: (Array) 
+    argsArray: (Array) (optional)
         Array that contains the parameters to be iterated;
     
-    callback: (function)
+    callback: (function) (optional)
         Callback function called after all jobs execution
 ```
 

@@ -1,4 +1,4 @@
-/*! co-work - v0.2.1 - 2015-12-05
+/*! co-work - v0.4.1 - 2015-12-05
 * https://github.com/thiagoh/co-work
 * Copyright (c) 2015 Thiago Andrade; Licensed MIT */
 (function(exports) {
@@ -28,7 +28,14 @@
 			throw new Error('Invalid slots. It must be at least 1');
 		}
 
-		argsArray = typeof argsArray === 'undefined' || Object.prototype.toString.call(argsArray) !== '[object Array]' ? [] : argsArray;
+		if (typeof argsArray === 'function' && typeof callback !== 'function') {
+			callback = argsArray;
+			argsArray = [];
+
+		} else {
+
+			argsArray = typeof argsArray === 'undefined' || Object.prototype.toString.call(argsArray) !== '[object Array]' ? [] : argsArray;
+		}
 
 		var queue = [],
 			index,
@@ -36,7 +43,7 @@
 			remaining = iterations,
 			executeNext = function() {
 				var obj = queue.shift();
-				
+
 				--remaining;
 
 				if (typeof obj === 'undefined' && queue.length <= 0) {

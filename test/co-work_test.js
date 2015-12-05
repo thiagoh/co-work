@@ -85,7 +85,7 @@ var worker = require('../lib/co-work.js'),
             }
         }
 
-        fn(max_workers_same_time, commands, undefined, function() {
+        fn(max_workers_same_time, commands, function() {
 
             // test callback
 
