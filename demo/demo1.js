@@ -34,4 +34,6 @@ worker.work(3, function(param1) {
 	});
 
 	return promise;
-}, argsArray);
+}, argsArray, function() {
+	console.log('Callback at the end');
+});

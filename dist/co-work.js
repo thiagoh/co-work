@@ -1,11 +1,11 @@
-/*! co-work - v0.2.0 - 2015-12-05
+/*! co-work - v0.2.1 - 2015-12-05
 * https://github.com/thiagoh/co-work
 * Copyright (c) 2015 Thiago Andrade; Licensed MIT */
 (function(exports) {
 
 	'use strict';
 
-	var work = function work(slots, routines, argsArray) {
+	var work = function work(slots, routines, argsArray, callback) {
 
 		if (typeof routines === 'undefined' || routines === null) {
 			throw new Error('Routines must be defined');
@@ -31,17 +31,26 @@
 		argsArray = typeof argsArray === 'undefined' || Object.prototype.toString.call(argsArray) !== '[object Array]' ? [] : argsArray;
 
 		var queue = [],
+			index,
 			iterations = Math.max(routines.length, argsArray.length),
+			remaining = iterations,
 			executeNext = function() {
 				var obj = queue.shift();
+				
+				--remaining;
 
 				if (typeof obj === 'undefined' && queue.length <= 0) {
+					if (remaining === 0) {
+						if (typeof callback === 'function') {
+							callback();
+						}
+					}
 					return;
 				}
 
-				run(obj.command, obj.arg, obj.index);
+				run(obj.command, obj.arg);
 			},
-			run = function(command, arg, index) {
+			run = function(command, arg) {
 
 				var result = command.call(null, arg);
 
@@ -58,8 +67,7 @@
 					}
 				}
 
-			},
-			index;
+			};
 
 		slots = Math.min(slots, iterations);
 
@@ -71,7 +79,7 @@
 			});
 		}
 		for (index = 0; index < slots; index++) {
-			run(routines[index] || routines[0], (argsArray || [])[index], index);
+			run(routines[index] || routines[0], (argsArray || [])[index]);
 		}
 	};
 

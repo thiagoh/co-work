@@ -64,10 +64,9 @@ var worker = require('../lib/co-work.js'),
                             " workers are running when should be only " + max_workers_same_time);
 
                         sleep(5);
-                        deferred.resolve(--count_workers_same_time);
-                        if (--count_workers_to_be_executed_test === 0) {
-                            test.done();
-                        }
+                        --count_workers_same_time;
+                        --count_workers_to_be_executed_test;
+                        deferred.resolve();
                     }, 10);
 
                     return promise;
@@ -86,7 +85,14 @@ var worker = require('../lib/co-work.js'),
             }
         }
 
-        fn(max_workers_same_time, commands);
+        fn(max_workers_same_time, commands, undefined, function() {
+
+            // test callback
+
+            if (count_workers_to_be_executed_test === 0) {
+                test.done();
+            }
+        });
 
         test.expect(count_workers_to_be_executed + 1);
 
@@ -113,24 +119,10 @@ var worker = require('../lib/co-work.js'),
                     "More workers than permitted. " + wrapper.count_workers_same_time +
                     " workers are running when should be only " + wrapper.max_workers_same_time);
 
-                deferred.resolve(--wrapper.count_workers_same_time);
+                --wrapper.count_workers_same_time;
+                --wrapper.count_workers_to_be_executed;
 
-                if (--wrapper.count_workers_to_be_executed === 0) {
-
-                    if (typeof wrapper.input !== 'undefined') {
-
-                        wrapper.output.sort();
-                        wrapper.input.sort();
-
-                        test.equal(wrapper.output.length, wrapper.input.length, "Input parameter's length should be equal to output parameter's length");
-
-                        for (var i = 0; i < wrapper.output.length; i++) {
-                            test.equal(wrapper.output[i], wrapper.input[i], "Input parameters should be equal to output");
-                        }
-                    }
-
-                    test.done();
-                }
+                deferred.resolve();
 
             }, 10);
 
@@ -207,7 +199,27 @@ exports['work'] = {
         test.ok(argsArray.length === config.count_workers_to_be_executed,
             "It should exist " + config.count_workers_to_be_executed + " commands");
 
-        worker.work(config.max_workers_same_time, command, argsArray);
+        worker.work(config.max_workers_same_time, command, argsArray, function() {
+
+            // test callback
+
+            if (config.count_workers_to_be_executed === 0) {
+
+                if (typeof config.input !== 'undefined') {
+
+                    config.output.sort();
+                    config.input.sort();
+
+                    test.equal(config.output.length, config.input.length, "Input parameter's length should be equal to output parameter's length");
+
+                    for (var i = 0; i < config.output.length; i++) {
+                        test.equal(config.output[i], config.input[i], "Input parameters should be equal to output");
+                    }
+                }
+
+                test.done();
+            }
+        });
         test.expect(config.count_workers_to_be_executed * 2 + 2);
     },
     'test_work_1000_commands_sync': function(test) {
@@ -227,7 +239,7 @@ exports['work'] = {
                         " workers are running when should be only " + max_workers_same_time);
 
                     --count_workers_same_time;
-                    
+
                     if (--count_workers_to_be_executed_test === 0) {
                         test.done();
                     }

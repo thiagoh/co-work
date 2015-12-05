@@ -34,4 +34,7 @@ var worker = require('../lib/co-work.js'),
 	countWorkersToBeExecuted = 100,
 	argsArray = fillWithIntegers(countWorkersToBeExecuted);
 
-worker.work(maximumWorkersAtTheSameTime, generateAsyncCommand(), argsArray);
+worker.work(maximumWorkersAtTheSameTime, generateAsyncCommand(), argsArray,
+	function() {
+		console.log('Callback at the end');
+	});
