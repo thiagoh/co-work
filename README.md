@@ -99,8 +99,8 @@ _Also, please don't edit files in the "dist" subdirectory as they are generated 
 
 ## Release History
 
-0.2.0 Args array parameter API fix release
-0.1.4 Initial release
+* 0.2.0 Args array parameter API fix release
+* 0.1.4 Initial release
 
 ## License
 Copyright (c) 2015 Thiago Andrade  
