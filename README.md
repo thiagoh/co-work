@@ -30,7 +30,7 @@ In your web page:
 ```html
 <script src="dist/co-work.min.js"></script>
 <script>
-worker.work(slots, routines, argsArray, callback);
+work(slots, routines, argsArray, callback);
 </script>
 ```
 
@@ -38,11 +38,11 @@ In your code, you can attach co-work's methods to any object.
 
 ```html
 <script>
-var exports = Bocoup.utils;
+var exports = MyPackage.utils;
 </script>
 <script src="dist/co-work.min.js"></script>
 <script>
-Bocoup.utils.work(slots, routines, argsArray, callback);
+MyPackage.utils.work(slots, routines, argsArray, callback);
 </script>
 ```
 
