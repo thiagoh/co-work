@@ -9,6 +9,10 @@ node_js:
   - "0.6"
 
 before_script:
-  - npm install -g grunt
-  
-script: grunt
+  - npm install -g grunt-cli
+
+install:
+  - npm install
+
+script: 
+  - grunt
