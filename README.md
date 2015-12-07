@@ -1,3 +1,5 @@
+	
+[![](https://img.shields.io/travis/thiagoh/co-work.svg)]((https://github.com/thiagoh/co-work/releases/latest))
 [![view on npm](http://img.shields.io/npm/v/co-work.svg)](https://www.npmjs.org/package/co-work)
 [![view on github](https://img.shields.io/node/v/co-work.svg)](https://github.com/thiagoh/co-work)
 [![npm module downloads](https://img.shields.io/npm/dt/co-work.svg)](https://www.npmjs.org/package/co-work)
