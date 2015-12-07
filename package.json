@@ -14,10 +14,7 @@
   "bugs": {
     "url": "https://github.com/thiagoh/co-work/issues"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/thiagoh/co-work/blob/master/LICENSE-MIT"
-  },
+  "license": "MIT",
   "main": "lib/co-work",
   "engines": {
     "node": ">= 0.10.0"
