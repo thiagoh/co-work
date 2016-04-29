@@ -5,7 +5,8 @@
   "homepage": "https://github.com/thiagoh/co-work",
   "author": {
     "name": "Thiago Andrade",
-    "email": "thiagoh@gmail.com"
+    "email": "thiagoh@gmail.com",
+    "url": "http://about.me/thiagoh"
   },
   "repository": {
     "type": "git",
